@@ -1,0 +1,13 @@
+from sqlalchemy import Column, Integer, String, Float
+from app.database import Base
+
+class Product(Base):
+    __tablename__ = "products"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), nullable=False)
+    category = Column(String(50))
+    unit = Column(String(20))
+    price = Column(Float, nullable=False)
+    min_stock = Column(Integer, default=0)
+    current_stock = Column(Integer, default=0)
