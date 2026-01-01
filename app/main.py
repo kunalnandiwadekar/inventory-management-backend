@@ -11,10 +11,6 @@ app = FastAPI(title="Inventory Management API")
 
 Base.metadata.create_all(bind=engine)
 
-app.include_router(product_routes.router)
-app.include_router(supplier_routes.router)
-app.include_router(auth_routes.router)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -27,6 +23,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(product_routes.router)
+app.include_router(supplier_routes.router)
+app.include_router(auth_routes.router)
 
 @app.get("/")
 def root():
