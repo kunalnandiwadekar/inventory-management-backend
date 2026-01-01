@@ -17,4 +17,4 @@ class SupplierOut(BaseModel):
     address: str
 
     class Config:
-        from_attributes = True
+        orm_mode = True   # ✅ Pydantic v1 (THIS IS THE KEY)
