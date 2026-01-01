@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class ProductCreate(BaseModel):
     name: str
     category: str
@@ -11,7 +10,7 @@ class ProductCreate(BaseModel):
 
 
 class ProductOut(BaseModel):
-    product_id: int
+    id: int                      
     name: str
     category: str
     unit: str

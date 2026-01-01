@@ -4,10 +4,10 @@ from app.database import Base
 class Product(Base):
     __tablename__ = "products"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(100), nullable=False)
-    category = Column(String(50))
-    unit = Column(String(20))
+    id = Column(Integer, primary_key=True, index=True)  
+    name = Column(String, nullable=False)
+    category = Column(String, nullable=False)
+    unit = Column(String, nullable=False)
     price = Column(Float, nullable=False)
-    min_stock = Column(Integer, default=0)
-    current_stock = Column(Integer, default=0)
+    min_stock = Column(Integer, nullable=False)
+    current_stock = Column(Integer, nullable=False)
