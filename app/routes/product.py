@@ -96,3 +96,34 @@ def stock_out(product_id: int, data: StockUpdate, db: Session = Depends(get_db))
     db.refresh(product)
 
     return {"current_stock": product.current_stock}
+
+@router.get("/dashboard/summary")
+def dashboard_summary(db: Session = Depends(get_db)):
+    total_products = db.query(Product).count()
+
+    total_stock = db.query(Product).with_entities(
+        Product.current_stock
+    ).all()
+    stock_sum = sum(item[0] for item in total_stock)
+
+    low_stock_count = db.query(Product).filter(
+        Product.current_stock <= Product.min_stock
+    ).count()
+
+    return {
+        "total_products": total_products,
+        "total_stock_units": stock_sum,
+        "low_stock_products": low_stock_count
+    }
+
+
+@router.get("/alerts/low-stock")
+def low_stock_alerts(db: Session = Depends(get_db)):
+    products = db.query(Product).filter(
+        Product.current_stock <= Product.min_stock
+    ).all()
+
+    return {
+        "count": len(products),
+        "products": products
+    }
