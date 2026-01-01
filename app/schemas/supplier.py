@@ -1,15 +1,20 @@
 from pydantic import BaseModel
-from typing import Optional
 
 class SupplierCreate(BaseModel):
     name: str
-    contact_person: Optional[str] = None
-    phone: Optional[str] = None
-    email: Optional[str] = None
-    address: Optional[str] = None
+    contact_person: str
+    phone: str
+    email: str
+    address: str
 
-class SupplierOut(SupplierCreate):
+
+class SupplierOut(BaseModel):
     id: int
+    name: str
+    contact_person: str
+    phone: str
+    email: str
+    address: str
 
     class Config:
         from_attributes = True
