@@ -3,14 +3,22 @@ from typing import Optional
 
 class ProductCreate(BaseModel):
     name: str
-    category: Optional[str] = None
-    unit: Optional[str] = None
+    category: str
+    unit: str
     price: float
-    min_stock: int = 0
-    current_stock: int = 0
+    min_stock: int
+    current_stock: int
 
-class ProductOut(ProductCreate):
-    id: int
+
+class ProductOut(BaseModel):
+    product_id: int
+    name: str
+    category: str
+    unit: str
+    price: float
+    min_stock: int
+    current_stock: int
 
     class Config:
-        from_attributes = True
+        orm_mode = True
+

@@ -13,12 +13,9 @@ router = APIRouter(prefix="/products", tags=["Products"])
 # CREATE PRODUCT
 # ----------------------------
 @router.post("/", response_model=ProductOut)
-def create_product(
-    product: ProductCreate,
-    db: Session = Depends(get_db)
-):
+def create_product(product: ProductCreate, db: Session = Depends(get_db)):
     new_product = Product(
-        product_name=product.product_name,
+        product_name=product.name,
         category=product.category,
         unit=product.unit,
         price=product.price,
