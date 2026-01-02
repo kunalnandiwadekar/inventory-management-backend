@@ -16,7 +16,6 @@ A high-performance, scalable backend service for managing inventory operations, 
 
 - **Base URL**: `https://inventory-backend-16mw.onrender.com`
 - **Interactive API Docs**: [Swagger UI](https://inventory-backend-16mw.onrender.com/docs)
-- **Alternative Docs**: [ReDoc](https://inventory-backend-16mw.onrender.com/redoc)
 
 ## 🛠 Tech Stack
 
@@ -24,7 +23,6 @@ A high-performance, scalable backend service for managing inventory operations, 
 - **Database**: PostgreSQL (Hosted on Render)
 - **ORM**: SQLAlchemy 2.0
 - **Data Validation**: Pydantic v2
-- **Authentication**: JWT
 - **ASGI Server**: Uvicorn
 - **API Documentation**: OpenAPI (Swagger & ReDoc)
 
@@ -89,7 +87,7 @@ alembic upgrade head
 6. **Start the server**
 bash
 uvicorn app.main:app --reload
-🔧 Configuration
+# 🔧 Configuration
 Create a .env file with:
 
 env
@@ -106,23 +104,23 @@ Run the test suite:
 
 bash
 pytest
-🌐 Deployment
+# 🌐 Deployment
 The application is deployed on Render with the following configuration:
 
-Automatic deploys from main branch
-PostgreSQL database
-Automatic SSL certificates
-Health checks and auto-restart
-🤝 Contributing
-Fork the repository
-Create feature branch (git checkout -b feature/AmazingFeature)
-Commit changes (git commit -m 'Add some AmazingFeature')
-Push to branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-📄 License
+- Automatic deploys from main branch
+- PostgreSQL database
+- Automatic SSL certificates
+- Health checks and auto-restart
+# 🤝 Contributing
+- Fork the repository
+- Create feature branch (git checkout -b feature/AmazingFeature)
+- Commit changes (git commit -m 'Add some AmazingFeature')
+- Push to branch (git push origin feature/AmazingFeature)
+- Open a Pull Request
+# 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-👤 Author
+# 👤 Author
 Kunal Nandiwadekar
 Full Stack Developer
 GitHub | LinkedIn
