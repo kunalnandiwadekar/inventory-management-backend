@@ -89,21 +89,16 @@ bash
 uvicorn app.main:app --reload
 # 🔧 Configuration
 Create a .env file with:
-
+```bash
 env
+
 # Database
 DATABASE_URL=postgresql://username:password@localhost:5432/inventory_db
 # Authentication
 SECRET_KEY=your-secure-secret-key
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-# Application
-DEBUG=True
-🧪 Testing
-Run the test suite:
 
-bash
-pytest
 # 🌐 Deployment
 The application is deployed on Render with the following configuration:
 
