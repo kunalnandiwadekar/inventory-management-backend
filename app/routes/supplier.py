@@ -6,33 +6,25 @@ from app.deps import get_db
 
 router = APIRouter(prefix="/suppliers", tags=["Suppliers"])
 
-
-@router.post("", response_model=SupplierOut)
-def create_supplier(
-    supplier: SupplierCreate,
-    db: Session = Depends(get_db)
-):
+@router.post("/", response_model=SupplierOut)
+def create_supplier(supplier: SupplierCreate, db: Session = Depends(get_db)):
     db_supplier = Supplier(**supplier.dict())
     db.add(db_supplier)
     db.commit()
     db.refresh(db_supplier)
-    return db_supplier   # ✅ RETURN ORM OBJECT
+    return db_supplier
 
 
-@router.get("", response_model=list[SupplierOut])
+@router.get("/", response_model=list[SupplierOut])
 def get_suppliers(db: Session = Depends(get_db)):
-    return db.query(Supplier).all()   # ✅ RETURN ORM LIST
+    return db.query(Supplier).all()
 
 
 @router.get("/{supplier_id}", response_model=SupplierOut)
 def get_supplier(supplier_id: int, db: Session = Depends(get_db)):
-    supplier = db.query(Supplier).filter(
-        Supplier.id == supplier_id
-    ).first()
-
+    supplier = db.query(Supplier).filter(Supplier.id == supplier_id).first()
     if not supplier:
         raise HTTPException(status_code=404, detail="Supplier not found")
-
     return supplier
 
 
@@ -42,10 +34,7 @@ def update_supplier(
     updated: SupplierCreate,
     db: Session = Depends(get_db)
 ):
-    supplier = db.query(Supplier).filter(
-        Supplier.id == supplier_id
-    ).first()
-
+    supplier = db.query(Supplier).filter(Supplier.id == supplier_id).first()
     if not supplier:
         raise HTTPException(status_code=404, detail="Supplier not found")
 
@@ -59,10 +48,7 @@ def update_supplier(
 
 @router.delete("/{supplier_id}")
 def delete_supplier(supplier_id: int, db: Session = Depends(get_db)):
-    supplier = db.query(Supplier).filter(
-        Supplier.id == supplier_id
-    ).first()
-
+    supplier = db.query(Supplier).filter(Supplier.id == supplier_id).first()
     if not supplier:
         raise HTTPException(status_code=404, detail="Supplier not found")
 
