@@ -6,18 +6,22 @@ from app.deps import get_db
 
 router = APIRouter(prefix="/suppliers", tags=["Suppliers"])
 
+
 @router.post("/", response_model=SupplierOut)
-def create_supplier(supplier: SupplierCreate, db: Session = Depends(get_db)):
+def create_supplier(
+    supplier: SupplierCreate,
+    db: Session = Depends(get_db)
+):
     db_supplier = Supplier(**supplier.dict())
     db.add(db_supplier)
     db.commit()
     db.refresh(db_supplier)
-    return db_supplier
+    return db_supplier   # ✅ RETURN ORM
 
 
 @router.get("/", response_model=list[SupplierOut])
 def get_suppliers(db: Session = Depends(get_db)):
-    return db.query(Supplier).all()
+    return db.query(Supplier).all()   # ✅ RETURN ORM LIST
 
 
 @router.get("/{supplier_id}", response_model=SupplierOut)
