@@ -91,7 +91,7 @@ uvicorn app.main:app --reload
 Create a .env file with:
 ```bash
 env
-
+```
 # Database
 DATABASE_URL=postgresql://username:password@localhost:5432/inventory_db
 # Authentication
