@@ -134,9 +134,6 @@ The application is deployed on [Render](https://render.com) with the following c
    git push origin feature/AmazingFeature
    ```
 5. Open a Pull Request
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -144,4 +141,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Kunal Nandiwadekar**  
 Full Stack Developer  
-[GitHub](https://github.com/kunalnandiwadekar) | [LinkedIn](https://linkedin.com/in/kunalnandiwadekar)
+[GitHub](https://github.com/kunalnandiwadekar) | [LinkedIn](https://www.linkedin.com/in/kunal-nandiwadekar/)
