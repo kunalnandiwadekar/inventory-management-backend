@@ -65,57 +65,83 @@ A high-performance, scalable backend service for managing inventory operations, 
    cd inventory-management-backend
 
 2. **Set up virtual environment**
-bash
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Unix/macOS
-source venv/bin/activate
+   ```bash
+   python -m venv venv
+   # Windows
+   .\venv\Scripts\activate
+   # Unix/macOS
+   source venv/bin/activate
+   ```
+
 3. **Install dependencies**
-bash
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 4. **Environment Setup**
-bash
-cp .env.example .env
-# Edit .env with your database credentials
+   ```bash
+   cp .env.example .env
+   # Edit .env with your database credentials
+   ```
+
 5. **Database Setup**
-bash
-# Create database
-createdb inventory_db
-# Run migrations
-alembic upgrade head
+   ```bash
+   # Create database
+   createdb inventory_db
+   # Run migrations
+   alembic upgrade head
+   ```
+
 6. **Start the server**
-bash
-uvicorn app.main:app --reload
-# 🔧 Configuration
-Create a .env file with:
-```bash
-env
-```
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+## 🔧 Configuration
+
+Create a `.env` file with the following variables:
+
+```env
 # Database
 DATABASE_URL=postgresql://username:password@localhost:5432/inventory_db
+
 # Authentication
 SECRET_KEY=your-secure-secret-key
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
 
-# 🌐 Deployment
-The application is deployed on Render with the following configuration:
+## 🌐 Deployment
 
-- Automatic deploys from main branch
+The application is deployed on [Render](https://render.com) with the following configuration:
+
+- Automatic deploys from `main` branch
 - PostgreSQL database
 - Automatic SSL certificates
 - Health checks and auto-restart
-# 🤝 Contributing
-- Fork the repository
-- Create feature branch (git checkout -b feature/AmazingFeature)
-- Commit changes (git commit -m 'Add some AmazingFeature')
-- Push to branch (git push origin feature/AmazingFeature)
-- Open a Pull Request
-# 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🤝 Contributing
 
-# 👤 Author
-Kunal Nandiwadekar
-Full Stack Developer
-GitHub | LinkedIn
+1. Fork the repository
+2. Create feature branch:
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. Open a Pull Request
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**Kunal Nandiwadekar**  
+Full Stack Developer  
+[GitHub](https://github.com/kunalnandiwadekar) | [LinkedIn](https://linkedin.com/in/kunalnandiwadekar)
