@@ -1,11 +1,18 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, validator
+import re
 
 class SupplierCreate(BaseModel):
     name: str
     contact_person: str
-    phone: str
+    phone: str = Field(..., example="9876543210")
     email: str
     address: str
+
+    @validator("phone")
+    def phone_must_be_digits(cls, v):
+        if not re.fullmatch(r"\d{10}", v):
+            raise ValueError("Phone number must be 10 digits")
+        return v
 
 
 class SupplierOut(BaseModel):
@@ -17,4 +24,4 @@ class SupplierOut(BaseModel):
     address: str
 
     class Config:
-        orm_mode = True   # ✅ Pydantic v1 (THIS IS THE KEY)
+        from_attributes = True
